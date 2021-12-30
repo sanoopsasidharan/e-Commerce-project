@@ -1,0 +1,1326 @@
+<!--========================================================= 
+    Item Name: Ekka - Ecommerce HTML Template.
+    Author: ashishmaraviya
+    Version: 2.0
+    Copyright 2021-2022
+	Author URI: https://themeforest.net/user/ashishmaraviya
+ ============================================================-->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from loopinfosol.in/themeforest/ekka-html-v2/ekka-html/user-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 Nov 2021 19:18:42 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Ekka - Ecommerce HTML Template.</title>
+    <meta name="keywords"
+        content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
+    <meta name="description" content="Best ecommerce html template for single and multi vendor store.">
+    <meta name="author" content="ashishmaraviya">
+
+    <!-- site Favicon -->
+    <link rel="icon" href="assets/images/favicon/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png" />
+    <meta name="msapplication-TileImage" content="assets/images/favicon/favicon.png" />
+
+    <!-- css Icon Font -->
+    <link rel="stylesheet" href="assets/css/vendor/ecicons.min.css" />
+
+    <!-- css All Plugins Files -->
+    <link rel="stylesheet" href="assets/css/plugins/animate.css" />
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/countdownTimer.css" />
+    <link rel="stylesheet" href="assets/css/plugins/slick.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/nouislider.css" />
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.css" />
+
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <!-- Background css -->
+    <link rel="stylesheet" id="bg-switcher-css" href="assets/css/backgrounds/bg-4.css">
+    <link href="/assets/css/material-dashboard.min.css?v=2.1.0" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css" />
+    <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet" />
+    <style>
+        .preview {
+            overflow: hidden;
+            width: 160px;
+            height: 160px;
+            margin: 10px;
+            border: 1px solid red;
+        }
+
+        .modal-lg {
+            max-width: 1000px !important;
+        }
+    </style>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+</head>
+
+<body class="shop_page">
+    <div id="ec-overlay"><span class="loader_img"></span></div>
+
+    <!-- Header start  -->
+    <!-- Button trigger modal -->
+
+    <!-- Modal 1-->
+    <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crop Image Here</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="img-container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <img src="" id="sampleImage1" />
+                            </div>
+                            <div class="col-md-4">
+                                <div class="preview" id="preview1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" id="crop1" class="btn btn-primary">Crop</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal  1 end-->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form id="editUserProfile">
+
+                        <label for="" class="form-label">Name</label>
+                        <input id="namevalidationpro" type="text" class="form-control" name="name"
+                            value="<%= userProfil.name %>">
+                        <div class="invalid-feedback" id="nameerror">enter your Name</div>
+
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" name="email" value="<%= userProfil.email %>" class="form-control"
+                            id="mailvalidationpro" aria-describedby="emailHelp">
+                        <div class="invalid-feedback" id="maileerror"> Enter email address </div>
+
+                        <label for="" class="form-label">Number</label>
+                        <input type="text" id="numbervalidationpro" class="form-control" name="number"
+                            value="<%= userProfil.number %>">
+                        <div class="invalid-feedback" id="number-error">Enter your phone number </div>
+
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control"  id="password">
+                        <div class="invalid-feedback" id="passworderror">Text a message</div>
+
+
+                        <div style="display: flex; justify-content: right; margin-top: 20px;">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="examplemodal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-password-form">
+                        <input type="text" value=" <%= userProfil._id %>" name="userId" hidden>
+                        <label for="" class="form-label">Old password</label>
+                        <input type="password" class="form-control" name="password">
+                        <label for="" class="form-label">New password</label>
+                        <input type="password" class="form-control" name="newPassword">
+                        <label for="" class="form-label">repeat password</label>
+                        <input type="password" class="form-control" name="repeatPassword">
+
+                        <div style="display: flex; justify-content:right;">
+                            <button type="submit" class="btn btn-primary mt-4">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCoupon" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Coupons</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div style="display: flex;justify-content: space-around;margin-top: 10px;margin-bottom: 15px;">
+                        <h5>wallet ammount</h5>
+                        <h5>₹ <%= userProfil.refarralamount %>
+                        </h5>
+                    </div>
+
+                    <table>
+                        <tr>
+
+                            <td>
+                                <%= userProfil.refarralcode %>
+                            </td>
+
+                            <td>
+                                <div style="display: flex;">
+                                    <input style="border: 0px;" type="text" value="<%= userProfil.refarralcode %>"
+                                        id="myInput<%= userProfil.refarralcode %>" disabled="disabled" hidden>
+                                    <button type="button"
+                                        onclick="myFunction('<%= userProfil.refarralcode %>')">Copy</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="mt-4" style="display: flex; justify-content: center;">
+                        <p>give your friends up to 100rs when they sign in your reffreal code</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End  -->
+
+    <!-- ekka Cart Start -->
+    <div class="ec-side-cart-overlay"></div>
+    <div id="ec-side-cart" class="ec-side-cart">
+        <div class="ec-cart-inner">
+            <div class="ec-cart-top">
+                <div class="ec-cart-title">
+                    <span class="cart_title">My Cart</span>
+                    <button class="ec-close">×</button>
+                </div>
+                <ul class="eccart-pro-items">
+                    <li>
+                        <a href="product-left-sidebar.html" class="sidekka_pro_img"><img
+                                src="assets/images/product-image/6_1.jpg" alt="product"></a>
+                        <div class="ec-pro-content">
+                            <a href="product-left-sidebar.html" class="cart_pro_title">T-shirt For Women</a>
+                            <span class="cart-price"><span>$76.00</span> x 1</span>
+                            <div class="qty-plus-minus">
+                                <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
+                            </div>
+                            <a href="javascript:void(0)" class="remove">×</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="product-left-sidebar.html" class="sidekka_pro_img"><img
+                                src="assets/images/product-image/12_1.jpg" alt="product"></a>
+                        <div class="ec-pro-content">
+                            <a href="product-left-sidebar.html" class="cart_pro_title">Women Leather Shoes</a>
+                            <span class="cart-price"><span>$64.00</span> x 1</span>
+                            <div class="qty-plus-minus">
+                                <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
+                            </div>
+                            <a href="javascript:void(0)" class="remove">×</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="product-left-sidebar.html" class="sidekka_pro_img"><img
+                                src="assets/images/product-image/3_1.jpg" alt="product"></a>
+                        <div class="ec-pro-content">
+                            <a href="product-left-sidebar.html" class="cart_pro_title">Girls Nylon Purse</a>
+                            <span class="cart-price"><span>$59.00</span> x 1</span>
+                            <div class="qty-plus-minus">
+                                <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
+                            </div>
+                            <a href="javascript:void(0)" class="remove">×</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ec-cart-bottom">
+                <div class="cart-sub-total">
+                    <table class="table cart-table">
+                        <tbody>
+                            <tr>
+                                <td class="text-left">Sub-Total :</td>
+                                <td class="text-right">$300.00</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">VAT (20%) :</td>
+                                <td class="text-right">$60.00</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Total :</td>
+                                <td class="text-right primary-color">$360.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cart_btn">
+                    <a href="cart.html" class="btn btn-primary">View Cart</a>
+                    <a href="checkout.html" class="btn btn-secondary">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ekka Cart End -->
+
+    <!-- Ec breadcrumb start -->
+
+    <!-- Ec breadcrumb end -->
+
+    <!-- User profile section -->
+    <section class="ec-page-content ec-vendor-uploads ec-user-account section-space-p">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Area Start -->
+                <div class="ec-shop-leftside ec-vendor-sidebar col-lg-3 col-md-12">
+                    <div class="ec-sidebar-wrap">
+                        <!-- Sidebar Category Block -->
+                        <div class="ec-sidebar-block">
+                            <div class="ec-vendor-block">
+                                <!-- <div class="ec-vendor-block-bg"></div>
+                                <div class="ec-vendor-block-detail">
+                                    <img class="v-img" src="assets/images/user/1.jpg" alt="vendor image">
+                                    <h5>Mariana Johns</h5>
+                                </div> -->
+                                <div class="ec-vendor-block-items">
+                                    <ul>
+                                        <li><a href="/userProfile">User Profile</a></li>
+                                        <li><a href="/userAddressManagement">Address</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec-shop-rightside col-lg-9 col-md-12">
+                    <div class="ec-vendor-dashboard-card ec-vendor-setting-card">
+                        <div class="ec-vendor-card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="ec-vendor-block-profile">
+
+
+                                        <!-- user profile show  -->
+
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+
+
+                                                <div class="text-center">
+                                                    <% if( userProfil.pic ){ %>
+                                                        <img style="width: 280px; margin-bottom: 20px;"
+                                                            id="checkpreview4"
+                                                            src="/productimage/image2/<%=user._id%>_1.jpg"
+                                                            class="rounded">
+                                                        <% } else{ %>
+                                                            <img style="width: 280px; margin-bottom: 20px;"
+                                                                id="checkpreview4"
+                                                                src="assets/images/whatsapp/profile_01.jpg"
+                                                                class="rounded">
+                                                            <% } %>
+
+
+                                                                <p style="color: black; cursor: pointer;"
+                                                                    onclick="profileEdit()" id="picEdit">edit</p>
+                                                                <p style="color: rgb(255, 0, 0); cursor: pointer;"
+                                                                    onclick="cancelProfileEdit()"
+                                                                    id="cancelProfileEdit">cancel</p>
+
+                                                                <form method="post" enctype="multipart/form-data"
+                                                                    action="/savePropic">
+                                                                    <div class="row"
+                                                                        style="display: flex;padding: 40px;">
+                                                                        <div class="col-md-8">
+                                                                            <input style="line-height: 1 !important;"
+                                                                                type="file" id="image1"
+                                                                                accept="image/gif, image/jpeg, image/png"
+                                                                                required />
+                                                                            <textarea name="image1" id="imageValue1"
+                                                                                cols="30" rows="10" hidden></textarea>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <button id="savepropicbtn"
+                                                                                class="btn btn-primary"
+                                                                                type="submit">save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div>
+                                                    <h5 class="text-black">
+                                                        <%= userProfil.name %>
+                                                    </h5>
+                                                    <br>
+                                                    <h5 class="text-black">
+                                                        <%= userProfil.email %>
+                                                    </h5>
+                                                    <br>
+                                                    <h5 class="text-black">
+                                                        <%= userProfil.number %>
+                                                    </h5>
+                                                    <a href=""></a>
+
+                                                    <button type="button" class="btn" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCoupon">
+                                                        Wallet
+                                                    </button>
+                                                    <br>
+                                                    <button type="button" class="btn bg-danger text-white"
+                                                        data-bs-toggle="modal" data-bs-target="#examplemodal4">
+                                                        change password
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="col-md-2 col-sm-2">
+                                            <div class="fileinput fileinput-new text-center">
+                                                <div class="fileinput-new thumbnail">
+                                                   
+                                                </div>
+                                                <div>
+                                                    <span class="btn btn-rose btn-round btn-file">
+                                                       
+                                                        <input type="file" id="image1"
+                                                            accept="image/gif, image/jpeg, image/png"
+                                                            required />
+                                                        <textarea name="image1" id="imageValue1" cols="30"
+                                                            rows="10" hidden></textarea>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            edit
+                                        </button>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End User profile section -->
+
+    <!-- Footer Start -->
+    <footer class="ec-footer section-space-mt">
+        <div class="footer-container">
+            <div class="footer-offer">
+                <div class="container">
+                    <div class="row">
+                        <div class="text-center footer-off-msg">
+                            <span>Win a contest! Get this limited-editon</span><a href="#" target="_blank">View
+                                Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-top section-space-footer-p">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-3 ec-footer-contact">
+                            <div class="ec-footer-widget">
+                                <div class="ec-footer-logo"><a href="#"><img src="assets/images/logo/footer-logo.png"
+                                            alt=""><img class="dark-footer-logo" src="assets/images/logo/dark-logo.png"
+                                            alt="Site Logo" style="display: none;" /></a></div>
+                                <h4 class="ec-footer-heading">Contact us</h4>
+                                <div class="ec-footer-links">
+                                    <ul class="align-items-center">
+                                        <li class="ec-footer-link">71 Pilgrim Avenue Chevy Chase, east california.</li>
+                                        <li class="ec-footer-link"><span>Call Us:</span><a href="tel:+440123456789">+44
+                                                0123 456 789</a></li>
+                                        <li class="ec-footer-link"><span>Email:</span><a
+                                                href="https://loopinfosol.in/cdn-cgi/l/email-protection#1c79647d716c70795c797f3179717d7570327f7371"><span
+                                                    class="__cf_email__"
+                                                    data-cfemail="2209475a434f524e476247410f474f434b4e0c414d4f">[email&#160;protected]</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-2 ec-footer-info">
+                            <div class="ec-footer-widget">
+                                <h4 class="ec-footer-heading">Information</h4>
+                                <div class="ec-footer-links">
+                                    <ul class="align-items-center">
+                                        <li class="ec-footer-link"><a href="about-us.html">About us</a></li>
+                                        <li class="ec-footer-link"><a href="faq.html">FAQ</a></li>
+                                        <li class="ec-footer-link"><a href="#">Delivery Information</a></li>
+                                        <li class="ec-footer-link"><a href="contact-us.html">Contact us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-2 ec-footer-account">
+                            <div class="ec-footer-widget">
+                                <h4 class="ec-footer-heading">Account</h4>
+                                <div class="ec-footer-links">
+                                    <ul class="align-items-center">
+                                        <li class="ec-footer-link"><a href="#">My Account</a></li>
+                                        <li class="ec-footer-link"><a href="track-order.html">Order History</a></li>
+                                        <li class="ec-footer-link"><a href="#">Wish List</a></li>
+                                        <li class="ec-footer-link"><a href="#">Specials</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-2 ec-footer-service">
+                            <div class="ec-footer-widget">
+                                <h4 class="ec-footer-heading">Services</h4>
+                                <div class="ec-footer-links">
+                                    <ul class="align-items-center">
+                                        <li class="ec-footer-link"><a href="#">Discount Returns</a></li>
+                                        <li class="ec-footer-link"><a href="#">Policy & policy </a></li>
+                                        <li class="ec-footer-link"><a href="#">Customer Service</a></li>
+                                        <li class="ec-footer-link"><a href="terms-condition.html">Term & condition</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-3 ec-footer-news">
+                            <div class="ec-footer-widget">
+                                <h4 class="ec-footer-heading">Newsletter</h4>
+                                <div class="ec-footer-links">
+                                    <ul class="align-items-center">
+                                        <li class="ec-footer-link">Get instant updates about our new products and
+                                            special promos!</li>
+                                    </ul>
+                                    <div class="ec-subscribe-form">
+                                        <form id="ec-newsletter-form" name="ec-newsletter-form" method="post"
+                                            action="#">
+                                            <div id="ec_news_signup" class="ec-form">
+                                                <input class="ec-email" type="email" required=""
+                                                    placeholder="Enter your email here..." name="ec-email" value="" />
+                                                <button id="ec-news-btn" class="button btn-primary" type="submit"
+                                                    name="subscribe" value=""><i class="ecicon eci-paper-plane-o"
+                                                        aria-hidden="true"></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <!-- Footer social Start -->
+                        <div class="col text-left footer-bottom-left">
+                            <div class="footer-bottom-social">
+                                <span class="social-text text-upper">Follow us on:</span>
+                                <ul class="mb-0">
+                                    <li class="list-inline-item"><a class="hdr-facebook" href="#"><i
+                                                class="ecicon eci-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a class="hdr-twitter" href="#"><i
+                                                class="ecicon eci-twitter"></i></a></li>
+                                    <li class="list-inline-item"><a class="hdr-instagram" href="#"><i
+                                                class="ecicon eci-instagram"></i></a></li>
+                                    <li class="list-inline-item"><a class="hdr-linkedin" href="#"><i
+                                                class="ecicon eci-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Footer social End -->
+                        <!-- Footer Copyright Start -->
+                        <div class="col text-center footer-copy">
+                            <div class="footer-bottom-copy ">
+                                <div class="ec-copy">Copyright © 2021-2022 <a class="site-name text-upper"
+                                        href="#">ekka<span>.</span></a>. All Rights Reserved</div>
+                            </div>
+                        </div>
+                        <!-- Footer Copyright End -->
+                        <!-- Footer payment -->
+                        <div class="col footer-bottom-right">
+                            <div class="footer-bottom-payment d-flex justify-content-end">
+                                <div class="payment-link">
+                                    <img src="assets/images/icons/payment.png" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Footer payment -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="edit_modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="ec-vendor-block-img space-bottom-30">
+                            <div class="ec-vendor-block-bg cover-upload">
+                                <div class="thumb-upload">
+                                    <!-- edit cover pic -->
+
+                                    <!-- <div class="thumb-edit">
+                                        <input type='file' id="thumbUpload01" class="ec-image-upload"
+                                            accept=".png, .jpg, .jpeg" />
+                                        <label><img src="assets/images/icons/edit.svg"
+                                                class="svg_img header_svg" alt="edit" /></label>
+                                    </div> -->
+                                    <div class="thumb-preview ec-preview">
+                                        <div class="image-thumb-preview">
+                                            <img class="image-thumb-preview ec-image-preview v-img"
+                                                src="assets/images/banner/8.jpg" alt="edit" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ec-vendor-block-detail">
+                                <div class="thumb-upload">
+                                    <div class="thumb-edit">
+                                        <input type='file' id="thumbUpload02" class="ec-image-upload"
+                                            accept=".png, .jpg, .jpeg" />
+                                        <label><img src="assets/images/icons/edit.svg" class="svg_img header_svg"
+                                                alt="edit" /></label>
+                                    </div>
+                                    <div class="thumb-preview ec-preview">
+                                        <div class="image-thumb-preview">
+                                            <img class="image-thumb-preview ec-image-preview v-img"
+                                                src="assets/images/user/1.jpg" alt="edit" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ec-vendor-upload-detail">
+                                <form class="row g-3">
+                                    <div class="col-md-6 space-t-15">
+                                        <label class="form-label">First name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 space-t-15">
+                                        <label class="form-label">Last name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-12 space-t-15">
+                                        <label class="form-label">Address 1</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-12 space-t-15">
+                                        <label class="form-label">Address 2</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-12 space-t-15">
+                                        <label class="form-label">Address 3</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 space-t-15">
+                                        <label class="form-label">Email id 1</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 space-t-15">
+                                        <label class="form-label">Email id 2</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 space-t-15">
+                                        <label class="form-label">Phone number 1</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 space-t-15">
+                                        <label class="form-label">Phone number 2</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-12 space-t-15">
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        <a href="#" class="btn btn-lg btn-secondary qty_close" data-bs-dismiss="modal"
+                                            aria-label="Close">Close</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+
+    <!-- Footer navigation panel for responsive display -->
+    <div class="ec-nav-toolbar">
+        <div class="container">
+            <div class="ec-nav-panel">
+                <div class="ec-nav-panel-icons">
+                    <a href="#ec-mobile-menu" class="navbar-toggler-btn ec-header-btn ec-side-toggle"><img
+                            src="assets/images/icons/menu.svg" class="svg_img header_svg" alt="" /></a>
+                </div>
+                <div class="ec-nav-panel-icons">
+                    <a href="#ec-side-cart" class="toggle-cart ec-header-btn ec-side-toggle"><img
+                            src="assets/images/icons/cart.svg" class="svg_img header_svg" alt="" /><span
+                            class="ec-cart-noti ec-header-count cart-count-lable">3</span></a>
+                </div>
+                <div class="ec-nav-panel-icons">
+                    <a href="index.html" class="ec-header-btn"><img src="assets/images/icons/home.svg"
+                            class="svg_img header_svg" alt="icon" /></a>
+                </div>
+                <div class="ec-nav-panel-icons">
+                    <a href="wishlist.html" class="ec-header-btn"><img src="assets/images/icons/wishlist.svg"
+                            class="svg_img header_svg" alt="icon" /><span class="ec-cart-noti">4</span></a>
+                </div>
+                <div class="ec-nav-panel-icons">
+                    <a href="login.html" class="ec-header-btn"><img src="assets/images/icons/user.svg"
+                            class="svg_img header_svg" alt="icon" /></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer navigation panel for responsive display end -->
+
+    <!-- Recent Purchase Popup  -->
+
+    <!-- Recent Purchase Popup end -->
+
+    <!-- Cart Floating Button -->
+    <div class="ec-cart-float">
+        <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
+            <div class="header-icon"><img src="assets/images/icons/cart.svg" class="svg_img header_svg" alt="" /></div>
+            <span class="ec-cart-count cart-count-lable">3</span>
+        </a>
+    </div>
+    <!-- Cart Floating Button end -->
+
+    <!-- Whatsapp -->
+    <div class="ec-style ec-right-bottom">
+        <!-- Start Floating Panel Container -->
+        <div class="ec-panel">
+            <!-- Panel Header -->
+            <div class="ec-header">
+                <strong>Need Help?</strong>
+                <p>Chat with us on WhatsApp</p>
+            </div>
+            <!-- Panel Content -->
+            <div class="ec-body">
+                <ul>
+                    <!-- Start Single Contact List -->
+                    <li>
+                        <a class="ec-list" data-number="918866774266"
+                            data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                            <div class="d-flex bd-highlight">
+                                <!-- Profile Picture -->
+                                <div class="ec-img-cont">
+                                    <img src="assets/images/whatsapp/profile_01.jpg" class="ec-user-img"
+                                        alt="Profile image">
+                                    <span class="ec-status-icon"></span>
+                                </div>
+                                <!-- Display Name & Last Seen -->
+                                <div class="ec-user-info">
+                                    <span>Sahar Darya</span>
+                                    <p>Sahar left 7 mins ago</p>
+                                </div>
+                                <!-- Chat iCon -->
+                                <div class="ec-chat-icon">
+                                    <i class="fa fa-whatsapp"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <!--/ End Single Contact List -->
+                    <!-- Start Single Contact List -->
+                    <li>
+                        <a class="ec-list" data-number="918866774266"
+                            data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                            <div class="d-flex bd-highlight">
+                                <!-- Profile Picture -->
+                                <div class="ec-img-cont">
+                                    <img src="assets/images/whatsapp/profile_02.jpg" class="ec-user-img"
+                                        alt="Profile image">
+                                    <span class="ec-status-icon ec-online"></span>
+                                </div>
+                                <!-- Display Name & Last Seen -->
+                                <div class="ec-user-info">
+                                    <span>Yolduz Rafi</span>
+                                    <p>Yolduz is online</p>
+                                </div>
+                                <!-- Chat iCon -->
+                                <div class="ec-chat-icon">
+                                    <i class="fa fa-whatsapp"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <!--/ End Single Contact List -->
+                    <!-- Start Single Contact List -->
+                    <li>
+                        <a class="ec-list" data-number="918866774266"
+                            data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                            <div class="d-flex bd-highlight">
+                                <!-- Profile Picture -->
+                                <div class="ec-img-cont">
+                                    <img src="assets/images/whatsapp/profile_03.jpg" class="ec-user-img"
+                                        alt="Profile image">
+                                    <span class="ec-status-icon ec-offline"></span>
+                                </div>
+                                <!-- Display Name & Last Seen -->
+                                <div class="ec-user-info">
+                                    <span>Nargis Hawa</span>
+                                    <p>Nargis left 30 mins ago</p>
+                                </div>
+                                <!-- Chat iCon -->
+                                <div class="ec-chat-icon">
+                                    <i class="fa fa-whatsapp"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <!--/ End Single Contact List -->
+                    <!-- Start Single Contact List -->
+                    <li>
+                        <a class="ec-list" data-number="918866774266"
+                            data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                            <div class="d-flex bd-highlight">
+                                <!-- Profile Picture -->
+                                <div class="ec-img-cont">
+                                    <img src="assets/images/whatsapp/profile_04.jpg" class="ec-user-img"
+                                        alt="Profile image">
+                                    <span class="ec-status-icon ec-offline"></span>
+                                </div>
+                                <!-- Display Name & Last Seen -->
+                                <div class="ec-user-info">
+                                    <span>Khadija Mehr</span>
+                                    <p>Khadija left 50 mins ago</p>
+                                </div>
+                                <!-- Chat iCon -->
+                                <div class="ec-chat-icon">
+                                    <i class="fa fa-whatsapp"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <!--/ End Single Contact List -->
+                </ul>
+            </div>
+        </div>
+        <!--/ End Floating Panel Container -->
+        <!-- Start Right Floating Button-->
+
+        <!--/ End Right Floating Button-->
+    </div>
+    <!-- Whatsapp end -->
+
+    <!-- Feature tools -->
+    <div class="ec-tools-sidebar-overlay"></div>
+    <div class="ec-tools-sidebar">
+        <div class="tool-title">
+            <h3>Features</h3>
+        </div>
+        <a href="#" class="ec-tools-sidebar-toggle in-out">
+            <img alt="icon" src="assets/images/common/settings.png" />
+        </a>
+        <div class="ec-tools-detail">
+            <div class="ec-tools-sidebar-content ec-change-color ec-color-desc">
+                <h3>Color Scheme</h3>
+                <ul class="bg-panel">
+                    <li class="active" data-color="01"><a href="#" class="colorcode1"></a></li>
+                    <li data-color="02"><a href="#" class="colorcode2"></a></li>
+                    <li data-color="03"><a href="#" class="colorcode3"></a></li>
+                    <li data-color="04"><a href="#" class="colorcode4"></a></li>
+                    <li data-color="05"><a href="#" class="colorcode5"></a></li>
+                </ul>
+            </div>
+            <div class="ec-tools-sidebar-content">
+                <h3>Backgroung</h3>
+                <ul class="bg-panel">
+                    <li class="bg"><a class="back-bg-1" id="bg-1">Background-1</a></li>
+                    <li class="bg"><a class="back-bg-2" id="bg-2">Background-2</a></li>
+                    <li class="bg"><a class="back-bg-3" id="bg-3">Background-3</a></li>
+                    <li class="bg"><a class="back-bg-4" id="bg-4">Default</a></li>
+                </ul>
+            </div>
+            <div class="ec-tools-sidebar-content">
+                <h3>Full Screen mode</h3>
+                <div class="ec-fullscreen-mode">
+                    <div class="ec-fullscreen-switch">
+                        <div class="ec-fullscreen-btn">Mode</div>
+                        <div class="ec-fullscreen-on">On</div>
+                        <div class="ec-fullscreen-off">Off</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ec-tools-sidebar-content">
+                <h3>Dark mode</h3>
+                <div class="ec-change-mode">
+                    <div class="ec-mode-switch">
+                        <div class="ec-mode-btn">Mode</div>
+                        <div class="ec-mode-on">On</div>
+                        <div class="ec-mode-off">Off</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ec-tools-sidebar-content">
+                <h3>RTL mode</h3>
+                <div class="ec-change-rtl">
+                    <div class="ec-rtl-switch">
+                        <div class="ec-rtl-btn">Rtl</div>
+                        <div class="ec-rtl-on">On</div>
+                        <div class="ec-rtl-off">Off</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ec-tools-sidebar-content">
+                <h3>Clear local storage</h3>
+                <a class="clear-cach" href="javascript:void(0)">Clear Cache & Default</a>
+            </div>
+        </div>
+    </div>
+    <!-- Feature tools end -->
+
+    <!-- Vendor JS -->
+    <script data-cfasync="false"
+        src="https://loopinfosol.in/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/bootstrap-tagsinput.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+
+    <!--Plugins JS-->
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/nouislider.js"></script>
+    <script src="assets/js/plugins/countdownTimer.min.js"></script>
+    <script src="assets/js/plugins/scrollup.js"></script>
+    <script src="assets/js/plugins/jquery.zoom.min.js"></script>
+    <script src="assets/js/plugins/slick.min.js"></script>
+    <script src="assets/js/plugins/infiniteslidev2.js"></script>
+    <script src="assets/js/plugins/jquery.sticky-sidebar.js"></script>
+
+    <!-- Main Js -->
+    <script src="assets/js/main.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/4f9ff9a3d7.js" crossorigin="anonymous"></script>
+    <!-- Material Dashboard CSS -->
+
+    <!-- validation cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+
+
+    <script src="https://unpkg.com/dropzone"></script>
+    <script src="https://unpkg.com/cropperjs"></script>
+
+    <script>
+        $('#editUserProfile').submit((num) => {
+            num.preventDefault()
+            $.ajax({
+                url: '/editUserDetails',
+                data: $('#editUserProfile').serialize(),
+                method: 'post',
+                success: (response) => {
+                    if (response.status) {
+                        Swal.fire({
+                            title: 'saved',
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'ok'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload()
+                            }
+                        })
+                    } else {
+                        Swal.fire(
+                            '',
+                            'password is not match',
+                            'warning'
+                        )
+                    }
+                }
+            })
+        })
+
+
+
+
+
+
+
+        // $('#editPassword').submit((num) => {
+        //     num.preventDefault()
+        //     $.ajax({
+        //         url: '/userEditPassword',
+        //         data: $('#editPassword').serialize(),
+        //         method: 'post',
+        //         success: (response) => {
+        //             alert(response)
+        //         }
+        //     })
+        // })
+
+
+        $('#edit-password-form').submit((num) => {
+            num.preventDefault()
+            $.ajax({
+                url: '/userEditPassword',
+                data: $('#edit-password-form').serialize(),
+                method: 'post',
+                success: (response) => {
+                    if (response.status) {
+                        Swal.fire({
+                            title: 'Password saved',
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'ok'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload()
+                            }
+                        })
+                    } else if (response.erorr) {
+                        Swal.fire(
+                            '',
+                            'sorry not match both password',
+                            'warning'
+                        )
+
+                    } else {
+                        Swal.fire(
+                            '',
+                            'old password not match',
+                            'warning'
+                        )
+
+                    }
+                }
+
+            })
+        })
+        document.getElementById('image1').style.display = 'none'
+        document.getElementById('savepropicbtn').style.display = 'none'
+        function profileEdit() {
+            document.getElementById('image1').style.display = 'block'
+            document.getElementById('picEdit').style.display = 'none'
+            document.getElementById('cancelProfileEdit').style.display = 'block'
+            document.getElementById('savepropicbtn').style.display = 'block'
+        }
+        document.getElementById('cancelProfileEdit').style.display = 'none'
+
+        function cancelProfileEdit() {
+            document.getElementById('image1').style.display = 'none'
+            document.getElementById('picEdit').style.display = 'block'
+            document.getElementById('cancelProfileEdit').style.display = 'none'
+            document.getElementById('savepropicbtn').style.display = 'none'
+        }
+    </script>
+    <script>
+        $('document').ready(function () {
+            //modal4 and image 1
+            var image1 = document.getElementById('sampleImage1');
+            var modal4 = $('#modal4');
+            var cropper1;
+
+            $('#image1').change(function (event) {
+                var files = event.target.files;
+
+                var done = function (url) {
+                    image1.src = url;
+                    modal4.modal('show');
+                };
+
+                if (files && files.length > 0) {
+                    reader = new FileReader();
+                    reader.onload = function (event) {
+                        done(reader.result);
+                    };
+                    reader.readAsDataURL(files[0]);
+                }
+            });
+
+            modal4.on('shown.bs.modal', function () {
+                cropper1 = new Cropper(image1, {
+                    aspectRatio: 7 / 8,
+                    viewMode: 1,
+                    preview: '#preview1'
+                });
+            }).on('hidden.bs.modal', function () {
+                cropper1.destroy();
+                cropper1 = null;
+            });
+
+            $('#crop1').click(function () {
+                canvas = cropper1.getCroppedCanvas({
+                    minWidth: 256,
+                    minHeight: 256,
+                    maxWidth: 4096,
+                    maxHeight: 4096,
+                    fillColor: '#fff',
+                    imageSmoothingEnabled: true,
+                    imageSmoothingQuality: 'high',
+                });
+
+                canvas.toBlob(function (blob) {
+                    url = URL.createObjectURL(blob);
+                    var reader = new FileReader();
+                    reader.readAsDataURL(blob);
+                    reader.onloadend = function () {
+                        var base64data = reader.result;
+                        modal4.modal('hide');
+                        $("#imageValue1").val(base64data)
+                        $('#checkpreview4').attr('src', base64data);
+                    };
+                });
+            });
+            //modal4 and image 1 end
+
+
+
+
+        });
+    </script>
+    <script>
+        $('#propicSave').submit((num) => {
+            num.preventDefault()
+            $.ajax({
+                url: '/savePropic',
+                data: $('#propicSave').serialize(),
+                method: 'post',
+                success: (response) => {
+                    alert(response)
+                }
+            })
+        })
+    </script>
+    <script>
+        function myFunction(id) {
+            var copyText = document.getElementById("myInput" + id);
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1000,
+
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'copy to keybord'
+            })
+        }
+    </script>
+    <script>
+        var nameValidated = false;
+        var phoneValidated = false;
+        var emailValidated = false;
+        var messageValidated = false;
+
+
+        $("#namevalidationpro").keyup(function () {
+            if ($("#namevalidationpro").val().match(/^[A-Za-z][A-Za-z\ ]/)) {
+                $("#nameerror").show();
+                $("#nameerror").text(" ");
+                nameValidated = true;
+            } else {
+                $("#nameerror").show();
+                $("#nameerror").text("Invalid name! try again");
+                $("#nameerror").css("class", "invalid-feedback");
+                nameValidated = false;
+            }
+            $("#namevalidationpro").keypress(function (num) {
+                if ((num.charCode >= 33 && num.charCode <= 64) || (num.charCode >= 91 && num.charCode <= 96) || (num.charCode >= 123 && num.charCode <= 126)) {
+                    num.preventDefault();
+                }
+            });
+            if ($("#namevalidationpro").val().length < 3) {
+                $("#nameerror").show();
+                $("#nameerror").text("Name should have type morethan 3 characters");
+                $("#nameerror").css("class", "invalid-feedback");
+                nameValidated = false;
+            }
+        });
+        $("#namevalidationpro").blur(function () {
+            if ($("#namevalidationpro").val() == "") {
+                $("#nameerror").show();
+                $("#nameerror").text("Name should not be empty!");
+                $("#nameerror").css("class", "invalid-feedback");
+                nameValidated = false;
+            }
+        });
+
+
+        $("#numbervalidationpro").keypress(function (num) {
+            return num.charCode >= 48 && num.charCode <= 57;
+        });
+        $("#numbervalidationpro").keyup(function () {
+            if ($("#numbervalidationpro").val().match(/^\d+$/)) {
+                $("#number-error").show();
+                $("#number-error").text(" ");
+                phoneValidated = true;
+            }
+            if ($("#numbervalidationpro").val().length < 10 || $("#numbervalidationpro").val().length > 10) {
+                $("#number-error").show();
+                $("#number-error").text("Phone number should be 10 digits!");
+                $("#number-error").css("class", "invalid-feedback");
+                phoneValidated = false;
+            }
+        });
+
+        $("#numbervalidationpro").blur(function () {
+            if ($("#numbervalidationpro").val() == "") {
+                $("#number-error").show();
+                $("#number-error").text("Phone number is required!");
+                $("#number-error").css("class", "invalid-feedback");
+                phoneValidated = false;
+            }
+        });
+
+        $("#mailvalidationpro").keyup(function () {
+            if ($("#mailvalidationpro").val().match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                $("#maileerror").text(" ");
+                $("#maileerror").show();
+                emailValidated = true;
+            } else {
+                $("#maileerror").show();
+                $("#maileerror").text("Invalid email address");
+                $("#maileerror").css("class", "invalid-feedback");
+                emailValidated = false;
+            }
+        });
+        $("#mailvalidationpro").blur(function () {
+            if ($("#mailvalidationpro").val() == "") {
+                $("#maileerror").show();
+                $("#maileerror").text("Must enter email");
+                $("#maileerror").css("class", "invalid-feedback");
+                emailValidated = false;
+            }
+        });
+
+
+        $("#password").keyup(function () {
+            if ($("#password").val().length < 3) {
+                $("#passworderror").show();
+                $("#passworderror").text("Message length must be written morethan 20 characters");
+                $("#passworderror").css("class", "invalid-feedback");
+                messageValidated = false;
+            } else {
+                $("#passworderror").show();
+                $("#passworderror").text(" ");
+                messageValidated = true;
+            }
+            if ($("#password").val() == "") {
+                $("#passworderror").show();
+                $("#passworderror").text("You must leave a message ");
+                $("#passworderror").css("class", "invalid-feedback");
+                messageValidated = false;
+            }
+        });
+
+        $('.navbar-collapse a').click(function () {
+            $('.navbar-collapse').collapse('hide');
+        });
+
+
+
+
+        $("#editUserProfile").submit(function (num) {
+            if ($("#namevalidationpro").val() == "" || $("#numbervalidationpro").val() == "" || $("#mailvalidationpro").val() == "" || $("#password").val() == "") {
+                alert("please fill the form properly");
+            }
+            if ($("#namevalidationpro").val() == "" && $("#numbervalidationpro").val() == "" && $("#mailvalidationpro").val() == "" && $("#password").val() == "") {
+                num.preventDefault();
+                $("#nameerror").show();
+                $("#number-error").show();
+                $("#maileerror").show();
+                $("#passworderror").show();
+            } else if (
+                nameValidated &&
+                phoneValidated &&
+                emailValidated &&
+                messageValidated
+            ) {
+                num.preventDefault();
+               
+            } else {
+                num.preventDefault();
+            }
+        });
+
+    </script>
+
+
+</body>
+
+<!-- Mirrored from loopinfosol.in/themeforest/ekka-html-v2/ekka-html/user-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 Nov 2021 19:18:44 GMT -->
+
+</html>
